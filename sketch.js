@@ -1,40 +1,48 @@
-var texto;
+let x, y;
+
+
 //corre solo una vez cuando inicia el programa
 function setup() {
-    console.log("setup - frameCount:" + frameCount);
+  console.log("setup - frameCount:" + frameCount);
 
-    //createCanvas: ancho, alto en píxeles
-    createCanvas(400, 400);
+  //createCanvas: ancho, alto en píxeles
+  createCanvas(400, 400);
+  
+  x=200;
+  y=200;
 
-
-    //background RGB : Define el color del fondo
-    // RED --> background(255,0,0);
-    // GREEN --> background(0,255, 0);
-    // BLUE --> background(0,255, 0);
-    texto = "Hola mundo";
 }
 
 //corre continuamente después de la función setup
-function draw() {
-    console.log("draw - frameCount:" + frameCount);
-   
-    background(125);
-     /**
-    ellipse(frameCount%400,100,40,40);
-    fill(100,125,255);
-    rect(300,300, 150,50);
-    fill(255,0,0);
-    */
+function draw(){
+  
+console.log("draw - frameCount%" + frameCount);
+console.log("keyCode" + keyCode);
+clear();
+background(125);
+ellipse(x,y,50,50);
 
+
+switch (keyCode) {
+
+  case 38:
+
+  text("Arriba", 40, 40, 200, 200);
+  y = y -1;
+  x = x -1;
+  break;
+
+  case 40:
     textSize(60);
+    text("Abajo",40,40,200,200);
+    y = y +1;
+x = x +1
+break;
 
-    text(texto, 30, 30, 130, 130);
+default:
+    break;
 
-
+  
 }
-function cambiaTexto() {
-   
-    texto = document.getElementById("texto").value;
-   
 
 }
